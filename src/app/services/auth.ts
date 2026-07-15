@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+//import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+ private api = environment.apiUrl;
   constructor(
     private http: HttpClient
   ) { }
@@ -14,7 +16,7 @@ export class AuthService {
   login(data: any) {
 
     return this.http.post<any>(
-      'http://localhost:8080/auth/login',
+      `${this.api}/auth/login`,
       data
     ).pipe(
       tap(response => {
@@ -37,7 +39,7 @@ export class AuthService {
   register(data:any){
 
   return this.http.post(
-    'http://localhost:8080/auth/register',
+      `${this.api}/auth/register`,
     data,
     {
       responseType: 'text'
