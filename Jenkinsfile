@@ -4,4 +4,4 @@ def configMap = [
     component: "frontned"
 ]
 
-javaSharedJenkins(configMap)
+nodeSharedJenkins(configMap)
