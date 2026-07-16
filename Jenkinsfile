@@ -1,7 +1,7 @@
 @Library('jenkins-shared-library') _
 
 def configMap = [
-    component: "frontned"
+    component: "frontend"
 ]
 
 nodeSharedJenkins(configMap)
