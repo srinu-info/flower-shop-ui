@@ -4,4 +4,13 @@ def configMap = [
     component: "frontend"
 ]
 
-nodeSharedJenkins(configMap)
+if (env.BRANCH_NAME == "development") {
+
+    nodeSharedJenkins(configMap)
+
+}
+else if (env.BRANCH_NAME == "main") {
+
+    nodeProdJenkins(configMap)
+
+}
